@@ -1,0 +1,633 @@
+.hero {
+    min-height: 100vh;
+
+    padding: 150px 6% 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 60px;
+
+    overflow: hidden;
+    position: relative;
+
+    background: #050816;
+}
+
+/* BACKGROUND */
+
+.bgGlow1 {
+    position: absolute;
+
+    width: 700px;
+    height: 700px;
+
+    top: -300px;
+    left: -300px;
+
+    background: #4338ca;
+
+    filter: blur(220px);
+
+    opacity: .35;
+}
+
+.bgGlow2 {
+    position: absolute;
+
+    width: 700px;
+    height: 700px;
+
+    right: -300px;
+    bottom: -300px;
+
+    background: #7c3aed;
+
+    filter: blur(250px);
+
+    opacity: .3;
+}
+
+/* LEFT CARD */
+
+.leftCard {
+    width: 52%;
+    max-width: 650px;
+
+    padding: 45px;
+
+    border-radius: 34px;
+
+    background: rgba(255, 255, 255, .04);
+
+    backdrop-filter: blur(30px);
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    z-index: 10;
+}
+
+.label {
+    color: #8b5cf6;
+
+    font-size: 13px;
+
+    letter-spacing: 6px;
+}
+
+.leftCard h1 {
+    color: white;
+
+    font-size: clamp(3rem, 4vw, 4.8rem);
+
+    line-height: .95;
+
+    margin: 20px 0;
+}
+
+.leftCard h2 {
+    color: white;
+
+    font-size: 1.6rem;
+
+    margin-bottom: 20px;
+}
+
+.leftCard h2 span {
+    color: #4ea1ff;
+}
+
+.leftCard p {
+    color: #b6c1d3;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+
+    max-width: 520px;
+}
+
+/* BUTTONS */
+
+.buttons {
+    display: flex;
+    gap: 16px;
+
+    margin-top: 30px;
+}
+
+.primary,
+.secondary {
+    height: 54px;
+
+    padding: 0 28px;
+
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.primary {
+    color: white;
+    border: none;
+
+    background: linear-gradient(135deg,
+            #7c3aed,
+            #2563eb);
+}
+
+.secondary {
+    color: white;
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    background: rgba(255, 255, 255, .05);
+}
+
+/* STATS */
+
+.stats {
+    display: flex;
+
+    gap: 16px;
+
+    margin-top: 35px;
+}
+
+.stats div {
+    width: 150px;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, .04);
+
+    border: 1px solid rgba(255, 255, 255, .08);
+}
+
+.stats h3 {
+    color: white;
+
+    font-size: 24px;
+
+    margin-top: 10px;
+}
+
+.stats p {
+    font-size: 12px;
+}
+
+/* RIGHT SIDE */
+
+.right {
+    width: 42%;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* IMAGE */
+
+.imageFrame {
+    width: 390px;
+    height: 520px;
+
+    padding: 10px;
+
+    border-radius: 40px;
+
+    background: linear-gradient(135deg,
+            #8b5cf6,
+            #2563eb);
+
+    position: relative;
+
+    z-index: 10;
+
+    box-shadow:
+        0 0 50px rgba(124, 58, 237, .35);
+}
+
+.imageBox {
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    border-radius: 30px;
+
+    position: relative;
+}
+
+.image {
+    object-fit: cover;
+}
+
+/* FLOATING CARDS */
+
+.reactCard,
+.nextCard,
+.codeCard,
+.tailwindCard {
+    position: absolute;
+
+    width: 140px;
+    height: 140px;
+
+    border-radius: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    backdrop-filter: blur(30px);
+
+    border: 1px solid rgba(255, 255, 255, .12);
+
+    z-index: 30;
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, .25);
+}
+
+.reactCard {
+    top: 80px;
+    left: -50px;
+
+    color: #61dafb;
+
+    background:
+        linear-gradient(135deg,
+            rgba(97, 218, 251, .15),
+            rgba(37, 99, 235, .15));
+}
+
+.reactCard svg {
+    width: 80px;
+    height: 80px;
+}
+
+.codeCard {
+    top: 110px;
+    right: -50px;
+
+    color: #a855f7;
+
+    background:
+        linear-gradient(135deg,
+            rgba(168, 85, 247, .15),
+            rgba(124, 58, 237, .15));
+}
+
+.codeCard svg {
+    width: 70px;
+    height: 70px;
+}
+
+.nextCard {
+    bottom: 100px;
+    left: -40px;
+
+    background:
+        linear-gradient(135deg,
+            rgba(255, 255, 255, .12),
+            rgba(255, 255, 255, .04));
+}
+
+.nextCard span {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.tailwindCard {
+    bottom: 60px;
+    right: -40px;
+
+    color: #06b6d4;
+
+    background:
+        linear-gradient(135deg,
+            rgba(6, 182, 212, .15),
+            rgba(14, 165, 233, .15));
+}
+
+.tailwindCard svg {
+    width: 80px;
+    height: 80px;
+}
+
+
+/* ORB */
+
+.orb {
+    position: absolute;
+
+    top: 80px;
+    right: 80px;
+
+    width: 160px;
+    height: 160px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(circle,
+            #e879f9,
+            #9333ea);
+
+    box-shadow:
+        0 0 80px #9333ea;
+}
+
+/* DOTS */
+
+.dots {
+    position: absolute;
+
+    right: -10px;
+    bottom: 210px;
+
+    width: 120px;
+    height: 120px;
+
+    background-image:
+        radial-gradient(#7c3aed 2px,
+            transparent 2px);
+
+    background-size: 16px 16px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width:1200px) {
+    .hero {
+        gap: 40px;
+    }
+
+    .imageFrame {
+        width: 340px;
+        height: 460px;
+    }
+}
+
+@media (max-width:992px) {
+    .hero {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding-top: 130px;
+    }
+
+    .leftCard {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .stats {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .right {
+        width: 100%;
+    }
+
+    .imageFrame {
+        width: 320px;
+        height: 420px;
+    }
+}
+
+@media (max-width:768px) {
+
+    .hero {
+        padding-top: 120px;
+    }
+
+    .leftCard {
+        padding: 28px;
+    }
+
+    .leftCard h1 {
+        font-size: 2.8rem;
+    }
+
+    .leftCard h2 {
+        font-size: 1.15rem;
+    }
+
+    .leftCard p {
+        font-size: 14px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .primary,
+    .secondary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .stats {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+    .stats div {
+        width: 100%;
+
+        min-height: 120px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+
+        padding: 20px;
+    }
+
+    .stats div svg {
+        margin-bottom: 12px;
+    }
+
+    .stats h3 {
+        margin-top: 0;
+
+        font-size: 28px;
+    }
+
+    .stats p {
+        font-size: 14px;
+    }
+
+    .reactCard,
+    .nextCard,
+    .codeCard,
+    .tailwindCard {
+        width: 80px;
+        height: 80px;
+    }
+
+    .reactCard {
+        left: -10px;
+        top: 70px;
+    }
+
+    .codeCard {
+        right: -10px;
+        top: 90px;
+    }
+
+    .nextCard {
+        left: -10px;
+        bottom: 70px;
+    }
+
+    .tailwindCard {
+        right: -10px;
+        bottom: 50px;
+    }
+
+    .reactCard svg,
+    .tailwindCard svg {
+        width: 42px;
+        height: 42px;
+    }
+
+    .codeCard svg {
+        width: 34px;
+        height: 34px;
+    }
+
+    .nextCard span {
+        font-size: 15px;
+    }
+
+    .imageFrame {
+        width: 280px;
+        height: 370px;
+    }
+}
+
+@media (max-width:480px) {
+
+    .hero {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .leftCard {
+        padding: 24px;
+    }
+
+    .leftCard h1 {
+        font-size: 2.3rem;
+    }
+
+    .leftCard h2 {
+        font-size: 1rem;
+    }
+
+    .label {
+        font-size: 11px;
+        letter-spacing: 4px;
+    }
+
+    .imageFrame {
+        width: 240px;
+        height: 320px;
+    }
+
+    .reactCard,
+    .nextCard,
+    .codeCard,
+    .tailwindCard {
+        width: 70px;
+        height: 70px;
+    }
+
+    .stats h3 {
+        font-size: 24px;
+    }
+}
+
+.primary,
+.secondary,
+.stats div,
+.reactCard,
+.nextCard,
+.codeCard,
+.tailwindCard,
+.imageFrame {
+    transition: all 0.35s ease;
+}
+
+.primary:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(124, 58, 237, .45);
+}
+
+.secondary:hover {
+    transform: translateY(-4px);
+}
+
+.stats div:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(139, 92, 246, .45);
+}
+
+.reactCard:hover,
+.nextCard:hover,
+.codeCard:hover,
+.tailwindCard:hover {
+    transform: translateY(-8px) scale(1.04);
+}
+
+.imageFrame:hover {
+    transform: translateY(-5px);
+}
+
+.orb {
+    animation: orbFloat 8s ease-in-out infinite;
+}
+
+@keyframes orbFloat {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
