@@ -22,7 +22,7 @@ export default function Footer() {
                 </div>
 
                 <div className={styles.copyright}>
-                    © 2025 <span>Vinit Kumbhani</span>.
+                    © 2026 <span>Vinit Kumbhani</span>.
                     All rights reserved.
                 </div>
             </div>
