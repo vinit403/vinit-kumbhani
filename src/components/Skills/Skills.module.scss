@@ -305,3 +305,20 @@
         height: 32px;
     }
 }
+
+.card,
+.iconBox {
+  will-change: transform;
+}
+
+.card {
+  transition: all .35s ease;
+}
+
+.iconBox {
+  transition: all .35s ease;
+}
+
+.card:hover .iconBox {
+  transform: scale(1.08);
+}

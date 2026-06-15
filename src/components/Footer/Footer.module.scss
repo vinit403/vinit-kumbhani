@@ -1,0 +1,185 @@
+.footer {
+    position: relative;
+    overflow: hidden;
+
+    padding: 0 6% 80px;
+
+    background: #050816;
+}
+
+/* BACKGROUND GLOWS */
+
+.glowLeft {
+    position: absolute;
+
+    left: -250px;
+    bottom: -200px;
+
+    width: 500px;
+    height: 500px;
+
+    background: #7c3aed;
+
+    opacity: .18;
+
+    filter: blur(220px);
+}
+
+.glowRight {
+    position: absolute;
+
+    right: -250px;
+    bottom: -200px;
+
+    width: 500px;
+    height: 500px;
+
+    background: #9333ea;
+
+    opacity: .18;
+
+    filter: blur(220px);
+}
+
+/* GLASS CARD */
+
+.card {
+    position: relative;
+    z-index: 2;
+
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding: 30px 60px;
+
+    text-align: center;
+
+    border-radius: 40px;
+
+    backdrop-filter: blur(35px);
+
+    background: rgba(255, 255, 255, .04);
+
+    border: 1px solid rgba(139, 92, 246, .25);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .05),
+        0 25px 60px rgba(0, 0, 0, .35);
+}
+
+.card h2 {
+    color: white;
+
+    font-size: clamp(2rem, 4vw, 3.5rem);
+
+    font-weight: 800;
+
+    margin-bottom: 30px;
+}
+
+.card h2 span {
+    color: #8b5cf6;
+}
+
+.card p {
+    max-width: 900px;
+
+    margin: auto;
+
+    color: #cbd5e1;
+
+    font-size: 1rem;
+
+    line-height: 1.9;
+}
+
+/* DIVIDER */
+
+.divider {
+    margin: 55px 0 35px;
+
+    position: relative;
+}
+
+.divider::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: 50%;
+
+    height: 1px;
+
+    background:
+        rgba(139, 92, 246, .25);
+}
+
+.divider span {
+    position: relative;
+
+    display: inline-block;
+
+    width: 16px;
+    height: 16px;
+
+    border-radius: 50%;
+
+    background: #8b5cf6;
+
+    box-shadow:
+        0 0 20px rgba(139, 92, 246, .8);
+}
+
+/* COPYRIGHT */
+
+.copyright {
+    color: #cbd5e1;
+
+    font-size: 1.2rem;
+}
+
+.copyright span {
+    color: #8b5cf6;
+
+    font-weight: 600;
+}
+
+/* TABLET */
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 0 20px 60px;
+    }
+
+    .card {
+        padding: 50px 25px;
+    }
+
+    .card p {
+        font-size: 1rem;
+    }
+
+    .copyright {
+        font-size: .95rem;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+    .card {
+        border-radius: 28px;
+    }
+
+    .card h2 {
+        font-size: 2.2rem;
+    }
+
+    .card p {
+        font-size: .95rem;
+        line-height: 1.8;
+    }
+}

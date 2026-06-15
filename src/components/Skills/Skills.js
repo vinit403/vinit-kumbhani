@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 
 import {
     FaReact,
@@ -59,16 +60,64 @@ const skills = [
     },
 ];
 
+const fadeUp = {
+  hidden: {
+    opacity: 0,
+    y: 50,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
+
+const container = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const cardVariant = {
+  hidden: {
+    opacity: 0,
+    y: 40,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
 export default function Skills() {
     return (
-        <section
-            className={styles.skills}
-            id="skills"
-        >
+        <motion.section
+  className={styles.skills}
+  id="skills"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{
+    once: true,
+    amount: 0.2,
+  }}
+>
             <div className={styles.glow1}></div>
             <div className={styles.glow2}></div>
 
-            <div className={styles.header}>
+            <motion.div
+  className={styles.header}
+  variants={fadeUp}
+>
                 <span>MY EXPERTISE</span>
 
                 <h2>
@@ -82,32 +131,48 @@ export default function Skills() {
                     with expertise in React and React Native
                     for mobile and web applications.
                 </p>
-            </div>
+            </motion.div>
 
-            <div className={styles.grid}>
+            <motion.div
+  className={styles.grid}
+  variants={container}
+>
                 {skills.map((skill, index) => (
-                    <div
-                        key={index}
-                        className={styles.card}
-                    >
-                        <div
-                            className={`${styles.iconBox} ${skill.className}`}
-                        >
+                    <motion.div
+  key={index}
+  className={styles.card}
+  variants={cardVariant}
+  whileHover={{
+    y: -8,
+    scale: 1.02,
+  }}
+>
+                        <motion.div
+  className={`${styles.iconBox} ${skill.className}`}
+  animate={{
+    y: [0, -8, 0],
+  }}
+  transition={{
+    duration: 4 + index * 0.3,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+>
                             {skill.icon}
-                        </div>
+                        </motion.div>
 
                         <h3>{skill.title}</h3>
 
                         <div className={styles.cardLine}></div>
 
                         <div className={styles.dots}></div>
-                    </div>
+                    </motion.div>
                 ))}
-            </div>
+            </motion.div>
 
             <div className={styles.bottomDivider}>
                 <span></span>
             </div>
-        </section>
+        </motion.section>
     );
 }

@@ -53,17 +53,45 @@
 }
 
 .navLink {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
     color: white;
-    text-decoration: none;
 
     font-size: 15px;
     font-weight: 500;
 
-    transition: 0.3s;
+    transition: all .3s ease;
+
+    position: relative;
 }
 
 .navLink:hover {
-    color: #60a5fa;
+    color: #8b5cf6;
+}
+
+.active {
+    color: #8b5cf6;
+}
+
+.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -8px;
+
+    transform: translateX(-50%);
+
+    width: 24px;
+    height: 2px;
+
+    border-radius: 999px;
+
+    background: #8b5cf6;
 }
 
 .cta {
@@ -87,5 +115,113 @@
 
     .cta {
         display: none;
+    }
+}
+
+.menuBtn {
+    display: none;
+
+    width: 46px;
+    height: 46px;
+
+    border: none;
+    cursor: pointer;
+
+    border-radius: 12px;
+
+    color: white;
+
+    background: rgba(255,255,255,.06);
+
+    align-items: center;
+    justify-content: center;
+}
+
+.menuBtn svg {
+    width: 24px;
+    height: 24px;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,.55);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: .35s ease;
+
+    z-index: 998;
+}
+
+.overlayShow {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobileMenu {
+    position: fixed;
+
+    top: 0;
+    right: -320px;
+
+    width: 300px;
+    height: 100vh;
+
+    padding: 110px 30px 40px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    backdrop-filter: blur(30px);
+
+    background: rgba(5,8,22,.95);
+
+    border-left: 1px solid rgba(255,255,255,.08);
+
+    transition: .4s ease;
+
+    z-index: 999;
+}
+
+.mobileMenuOpen {
+    right: 0;
+}
+
+.mobileLink {
+    background: transparent;
+    border: none;
+
+    text-align: left;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    transition: .3s ease;
+}
+
+.mobileLink:hover {
+    color: #8b5cf6;
+}
+
+.activeMobile {
+    color: #8b5cf6;
+}
+
+@media (max-width: 992px) {
+
+    .nav {
+        display: none;
+    }
+
+    .menuBtn {
+        display: flex;
     }
 }

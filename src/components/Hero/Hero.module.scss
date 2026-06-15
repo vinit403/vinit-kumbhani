@@ -69,9 +69,10 @@
 }
 
 .label {
-    color: #8b5cf6;
+    color: #4ea1ff;
 
     font-size: 13px;
+    font-weight: 600;
 
     letter-spacing: 6px;
 }
@@ -143,11 +144,19 @@
 }
 
 .secondary {
-    color: white;
+  color: white;
 
-    border: 1px solid rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .08);
 
-    background: rgba(255, 255, 255, .05);
+  background: rgba(255, 255, 255, .05);
+
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
 }
 
 /* STATS */

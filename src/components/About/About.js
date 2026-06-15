@@ -79,9 +79,9 @@ export default function About() {
             }}
         >
 
-            <div className={styles.bgGlow1}></div>
+            {/* <div className={styles.bgGlow1}></div>
             <div className={styles.bgGlow2}></div>
-            <div className={styles.orb}></div>
+            <div className={styles.orb}></div> */}
 
             <motion.div
                 className={styles.header}
