@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import {
   Monitor,
@@ -27,11 +27,7 @@ const projects = [
       "A productivity dashboard to manage tasks and team workflow.",
     image: "/projects/project2.jpg",
     type: "website",
-    tech: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-    ],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
     title: "Finance Mobile App",
@@ -39,11 +35,7 @@ const projects = [
       "A mobile app for tracking expenses and managing finance.",
     image: "/projects/project3.jpg",
     type: "mobile",
-    tech: [
-      "React Native",
-      "Firebase",
-      "TypeScript",
-    ],
+    tech: ["React Native", "Firebase", "TypeScript"],
   },
 ];
 
@@ -65,14 +57,16 @@ const fadeUp = {
 const cardVariant = {
   hidden: {
     opacity: 0,
-    y: 60,
+    y: 40,
+    scale: 0.95,
   },
   visible: (i) => ({
     opacity: 1,
     y: 0,
+    scale: 1,
     transition: {
-      delay: i * 0.15,
-      duration: 0.7,
+      delay: i * 0.12,
+      duration: 0.6,
       ease: "easeOut",
     },
   }),
@@ -82,13 +76,17 @@ export default function Portfolio() {
   const [activeFilter, setActiveFilter] =
     useState("all");
 
-  const filteredProjects =
-    activeFilter === "all"
-      ? projects
-      : projects.filter(
-          (project) =>
-            project.type === activeFilter
-        );
+  const filteredProjects = useMemo(() => {
+    if (activeFilter === "all") {
+      return projects;
+    }
+
+    return projects.filter(
+      (project) =>
+        project.type.toLowerCase() ===
+        activeFilter.toLowerCase()
+    );
+  }, [activeFilter]);
 
   return (
     <motion.section
@@ -101,8 +99,8 @@ export default function Portfolio() {
         amount: 0.15,
       }}
     >
-      <div className={styles.glowLeft}></div>
-      <div className={styles.glowRight}></div>
+      <div className={styles.glowLeft} />
+      <div className={styles.glowRight} />
 
       {/* HEADER */}
 
@@ -116,7 +114,7 @@ export default function Portfolio() {
           Port<span>folio</span>
         </h2>
 
-        <div className={styles.line}></div>
+        <div className={styles.line} />
 
         <p>
           A showcase of my recent projects,
@@ -135,6 +133,7 @@ export default function Portfolio() {
                 ? styles.active
                 : ""
             }
+            type="button"
           >
             All
           </motion.button>
@@ -149,6 +148,7 @@ export default function Portfolio() {
                 ? styles.active
                 : ""
             }
+            type="button"
           >
             Websites
           </motion.button>
@@ -163,6 +163,7 @@ export default function Portfolio() {
                 ? styles.active
                 : ""
             }
+            type="button"
           >
             Mobile Apps
           </motion.button>
@@ -171,149 +172,199 @@ export default function Portfolio() {
 
       {/* PROJECTS */}
 
-      <div className={styles.projects}>
-        {filteredProjects.map(
-          (project, index) => (
-            <motion.div
-              key={`${activeFilter}-${index}`}
-              custom={index}
-              variants={cardVariant}
-              whileHover={{
-                y: -10,
-              }}
-              className={styles.card}
-            >
-              <motion.div
-                className={styles.mockup}
-                animate={{
-                  y: [0, -8, 0],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
-                {project.type ===
-                "website" ? (
-                  <div
-                    className={
-                      styles.laptop
-                    }
-                  >
-                    <div
-                      className={
-                        styles.screen
-                      }
-                    >
-                      <Image
-                        src={
-                          project.image
-                        }
-                        alt={
-                          project.title
-                        }
-                        fill
-                        className={
-                          styles.projectImage
-                        }
-                      />
-                    </div>
-
-                    <div
-                      className={
-                        styles.base
-                      }
-                    ></div>
-                  </div>
-                ) : (
-                  <div
-                    className={
-                      styles.phone
-                    }
-                  >
-                    <div
-                      className={
-                        styles.phoneScreen
-                      }
-                    >
-                      <Image
-                        src={
-                          project.image
-                        }
-                        alt={
-                          project.title
-                        }
-                        fill
-                        className={
-                          styles.projectImage
-                        }
-                      />
-                    </div>
-                  </div>
-                )}
-              </motion.div>
-
-              <div
-                className={styles.content}
-              >
-                <div
-                  className={styles.icon}
-                >
-                  {project.type ===
-                  "website" ? (
-                    <Monitor />
-                  ) : (
-                    <Smartphone />
-                  )}
-                </div>
-
-                <div>
-                  <h3>
-                    {project.title}
-                  </h3>
-
-                  <p>
-                    {
-                      project.description
-                    }
-                  </p>
-                </div>
-              </div>
-
-              <div
-                className={styles.bottom}
-              >
-                <div
-                  className={styles.tags}
-                >
-                  {project.tech.map(
-                    (tech, i) => (
-                      <span
-                        key={i}
-                      >
-                        {tech}
-                      </span>
-                    )
-                  )}
-                </div>
-
-                <motion.button
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeFilter}
+          className={styles.projects}
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+          exit={{
+            opacity: 0,
+          }}
+          transition={{
+            duration: 0.25,
+          }}
+        >
+          {filteredProjects.length >
+          0 ? (
+            filteredProjects.map(
+              (project, index) => (
+                <motion.div
+                  key={`${project.title}-${index}`}
+                  custom={index}
+                  variants={cardVariant}
+                  initial="hidden"
+                  animate="visible"
                   whileHover={{
-                    rotate: 45,
-                    scale: 1.08,
+                    y: -10,
                   }}
-                  className={
-                    styles.arrow
-                  }
+                  className={styles.card}
                 >
-                  <ArrowUpRight />
-                </motion.button>
-              </div>
-            </motion.div>
-          )
-        )}
-      </div>
+                  <motion.div
+                    className={
+                      styles.mockup
+                    }
+                    animate={{
+                      y: [0, -8, 0],
+                    }}
+                    transition={{
+                      duration: 5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    {project.type ===
+                    "website" ? (
+                      <div
+                        className={
+                          styles.laptop
+                        }
+                      >
+                        <div
+                          className={
+                            styles.screen
+                          }
+                        >
+                          <Image
+                            src={
+                              project.image
+                            }
+                            alt={
+                              project.title
+                            }
+                            fill
+                            sizes="100vw"
+                            className={
+                              styles.projectImage
+                            }
+                          />
+                        </div>
+
+                        <div
+                          className={
+                            styles.base
+                          }
+                        />
+                      </div>
+                    ) : (
+                      <div
+                        className={
+                          styles.phone
+                        }
+                      >
+                        <div
+                          className={
+                            styles.phoneScreen
+                          }
+                        >
+                          <Image
+                            src={
+                              project.image
+                            }
+                            alt={
+                              project.title
+                            }
+                            fill
+                            sizes="100vw"
+                            className={
+                              styles.projectImage
+                            }
+                          />
+                        </div>
+                      </div>
+                    )}
+                  </motion.div>
+
+                  <div
+                    className={
+                      styles.content
+                    }
+                  >
+                    <div
+                      className={
+                        styles.icon
+                      }
+                    >
+                      {project.type ===
+                      "website" ? (
+                        <Monitor />
+                      ) : (
+                        <Smartphone />
+                      )}
+                    </div>
+
+                    <div>
+                      <h3>
+                        {project.title}
+                      </h3>
+
+                      <p>
+                        {
+                          project.description
+                        }
+                      </p>
+                    </div>
+                  </div>
+
+                  <div
+                    className={
+                      styles.bottom
+                    }
+                  >
+                    <div
+                      className={
+                        styles.tags
+                      }
+                    >
+                      {project.tech.map(
+                        (
+                          tech,
+                          techIndex
+                        ) => (
+                          <span
+                            key={
+                              techIndex
+                            }
+                          >
+                            {tech}
+                          </span>
+                        )
+                      )}
+                    </div>
+
+                    <motion.button
+                      whileHover={{
+                        rotate: 45,
+                        scale: 1.08,
+                      }}
+                      className={
+                        styles.arrow
+                      }
+                      type="button"
+                    >
+                      <ArrowUpRight />
+                    </motion.button>
+                  </div>
+                </motion.div>
+              )
+            )
+          ) : (
+            <div
+              style={{
+                textAlign: "center",
+                padding: "50px 0",
+                width: "100%",
+              }}
+            >
+              No projects found.
+            </div>
+          )}
+        </motion.div>
+      </AnimatePresence>
     </motion.section>
   );
 }
