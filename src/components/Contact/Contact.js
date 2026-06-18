@@ -213,7 +213,7 @@ export default function Contact() {
           </motion.a>
 
           <motion.a
-            href="https://github.com/"
+            href="https://github.com/vinit403"
             whileHover={{
               scale: 1.08,
             }}
