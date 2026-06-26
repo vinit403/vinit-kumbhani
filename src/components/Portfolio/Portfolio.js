@@ -14,28 +14,31 @@ import styles from "./Portfolio.module.scss";
 
 const projects = [
   {
-    title: "Brand Landing Page",
+    title: "The Fantom Exclusive Furniture",
     description:
-      "Modern and responsive landing page for digital agency.",
-    image: "/projects/project1.jpg",
+      "A premium furniture website with a modern, elegant, and responsive design.",
+    image: "/images/fantom.png",
     type: "website",
-    tech: ["Next.js", "React", "Tailwind CSS"],
+    tech: ["Next.js", "React", "NodeJs"],
+    link: "https://www.thefantomexclusivefurniture.com/"
   },
   {
-    title: "Task Management Dashboard",
+    title: "Vinit Kumbhani | Portfolio Website",
     description:
-      "A productivity dashboard to manage tasks and team workflow.",
-    image: "/projects/project2.jpg",
+      "A modern portfolio highlighting my projects, skills, and creative work.",
+    image: "/images/vinit-portfolio.png",
     type: "website",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    tech: ["Next.js", "JavaScript", "Tailwind CSS"],
+    link: "https://vinit-kumbhani.vercel.app/"
   },
   {
-    title: "Finance Mobile App",
+    title: "Tours & Travels App",
     description:
       "A mobile app for tracking expenses and managing finance.",
-    image: "/projects/project3.jpg",
+    image: "/images/travel.png",
     type: "mobile",
-    tech: ["React Native", "Firebase", "TypeScript"],
+    tech: ["React Native", "Firebase", "JavaScript"],
+    link:"https://github.com/vinit403/Cab-Booking-React_Native"
   },
 ];
 
@@ -243,12 +246,6 @@ export default function Portfolio() {
                             }
                           />
                         </div>
-
-                        <div
-                          className={
-                            styles.base
-                          }
-                        />
                       </div>
                     ) : (
                       <div
@@ -337,17 +334,16 @@ export default function Portfolio() {
                     </div>
 
                     <motion.button
-                      whileHover={{
-                        rotate: 45,
-                        scale: 1.08,
-                      }}
-                      className={
-                        styles.arrow
-                      }
-                      type="button"
-                    >
-                      <ArrowUpRight />
-                    </motion.button>
+  whileHover={{
+    rotate: 45,
+    scale: 1.08,
+  }}
+  className={styles.arrow}
+  type="button"
+  onClick={() => window.open(project.link, "_blank", "noopener,noreferrer")}
+>
+  <ArrowUpRight />
+</motion.button>
                   </div>
                 </motion.div>
               )

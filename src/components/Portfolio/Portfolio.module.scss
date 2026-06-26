@@ -221,28 +221,13 @@
 
     border-radius: 16px;
 
-    border: 10px solid #171a2f;
-}
-
-.base {
-    width: 85%;
-
-    height: 10px;
-
-    margin: auto;
-
-    border-radius: 0 0 20px 20px;
-
-    background:
-        linear-gradient(180deg,
-            #9ca3af,
-            #4b5563);
+    border: transparent
 }
 
 /* PHONE */
 
 .phone {
-    width: 200px;
+    width: 350px;
     height: 390px;
 
     margin: auto;
@@ -251,9 +236,9 @@
 
     border-radius: 36px;
 
-    background: #101321;
+    background: transparent;
 
-    border: 2px solid rgba(255, 255, 255, .1);
+    border: transparent;
 }
 
 .phoneScreen {
