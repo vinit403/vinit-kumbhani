@@ -146,7 +146,7 @@ export default function About() {
                         }}
                     >
                         <Image
-                            src="/images/profile.jpeg"
+                            src="/images/about.png"
                             alt="about"
                             fill
                             className={styles.image}
@@ -167,14 +167,15 @@ export default function About() {
                         </div>
 
                         <h3>
-                            React Native <span>Developer.</span>
+                            Software <span>Developer.</span>
                         </h3>
 
                         <p className={styles.description}>
-                            I thrive on crafting elegant solutions to complex
-                            problems. With a strong foundation in React Native
-                            and React, I specialize in developing robust and
-                            user-friendly mobile applications.
+                            Software Developer with expertise in building modern web and mobile applications using React.js, Next.js, React Native, and TypeScript. Experienced in developing scalable, responsive, and user-friendly applications, integrating REST APIs, and optimizing performance to deliver reliable, high-quality solutions.
+                        </p>
+                        <p className={styles.description}>My expertise includes frontend development, mobile app development, and Web3 technologies such as blockchain integration, wallet connectivity, and smart contract interaction. I enjoy transforming ideas into efficient digital solutions and continuously learning new technologies to enhance my development skills.</p>
+
+                        <p className={styles.description}>Passionate about clean code, problem-solving, and delivering high-quality user experiences, I am always eager to contribute to innovative projects and grow as a software engineer.
                         </p>
 
                         <div className={styles.detailsGrid}>

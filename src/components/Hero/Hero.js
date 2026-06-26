@@ -89,8 +89,8 @@ export default function Hero() {
         </motion.h2>
 
         <motion.p variants={fadeUp}>
-          I build modern, responsive and scalable web applications
-          with clean code and great user experience.
+          Software Developer specializing in React.js, Next.js, React Native, and TypeScript, with expertise in building responsive web and mobile applications. Passionate about API integration, Web3 development, and creating scalable, user-friendly solutions using modern technologies.
+
         </motion.p>
 
         <div className={styles.buttons}>
@@ -205,7 +205,7 @@ export default function Hero() {
         >
           <div className={styles.imageBox}>
             <Image
-              src="/images/profile.jpeg"
+              src="/images/profile.png"
               alt="profile"
               fill
               priority
