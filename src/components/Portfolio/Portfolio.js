@@ -207,74 +207,25 @@ export default function Portfolio() {
                   }}
                   className={styles.card}
                 >
-                  <motion.div
-                    className={
-                      styles.mockup
-                    }
-                    animate={{
-                      y: [0, -8, 0],
-                    }}
-                    transition={{
-                      duration: 5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    {project.type ===
-                    "website" ? (
-                      <div
-                        className={
-                          styles.laptop
-                        }
-                      >
-                        <div
-                          className={
-                            styles.screen
-                          }
-                        >
-                          <Image
-                            src={
-                              project.image
-                            }
-                            alt={
-                              project.title
-                            }
-                            fill
-                            sizes="100vw"
-                            className={
-                              styles.projectImage
-                            }
-                          />
-                        </div>
-                      </div>
-                    ) : (
-                      <div
-                        className={
-                          styles.phone
-                        }
-                      >
-                        <div
-                          className={
-                            styles.phoneScreen
-                          }
-                        >
-                          <Image
-                            src={
-                              project.image
-                            }
-                            alt={
-                              project.title
-                            }
-                            fill
-                            sizes="100vw"
-                            className={
-                              styles.projectImage
-                            }
-                          />
-                        </div>
-                      </div>
-                    )}
-                  </motion.div>
+<motion.div
+  className={`${styles.imageWrapper} ${
+    project.type === "mobile" ? styles.mobileImage : ""
+  }`}
+  animate={{ y: [0, -8, 0] }}
+  transition={{
+    duration: 5,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+>
+  <Image
+    src={project.image}
+    alt={project.title}
+    fill
+    sizes="100vw"
+    className={styles.projectImage}
+  />
+</motion.div>
 
                   <div
                     className={
