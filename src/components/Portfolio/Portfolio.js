@@ -38,7 +38,7 @@ const projects = [
     image: "/images/travel.png",
     type: "mobile",
     tech: ["React Native", "Firebase", "JavaScript"],
-    link:"https://github.com/vinit403/Cab-Booking-React_Native"
+    link: "https://github.com/vinit403/Cab-Booking-React_Native"
   },
 ];
 
@@ -193,7 +193,7 @@ export default function Portfolio() {
           }}
         >
           {filteredProjects.length >
-          0 ? (
+            0 ? (
             filteredProjects.map(
               (project, index) => (
                 <motion.div
@@ -207,25 +207,24 @@ export default function Portfolio() {
                   }}
                   className={styles.card}
                 >
-<motion.div
-  className={`${styles.imageWrapper} ${
-    project.type === "mobile" ? styles.mobileImage : ""
-  }`}
-  animate={{ y: [0, -8, 0] }}
-  transition={{
-    duration: 5,
-    repeat: Infinity,
-    ease: "easeInOut",
-  }}
->
-  <Image
-    src={project.image}
-    alt={project.title}
-    fill
-    sizes="100vw"
-    className={styles.projectImage}
-  />
-</motion.div>
+                  <motion.div
+                    className={`${styles.imageWrapper} ${project.type === "mobile" ? styles.mobileImage : ""
+                      }`}
+                    animate={{ y: [0, -8, 0] }}
+                    transition={{
+                      duration: 5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      sizes="100vw"
+                      className={styles.projectImage}
+                    />
+                  </motion.div>
 
                   <div
                     className={
@@ -238,7 +237,7 @@ export default function Portfolio() {
                       }
                     >
                       {project.type ===
-                      "website" ? (
+                        "website" ? (
                         <Monitor />
                       ) : (
                         <Smartphone />
@@ -285,16 +284,16 @@ export default function Portfolio() {
                     </div>
 
                     <motion.button
-  whileHover={{
-    rotate: 45,
-    scale: 1.08,
-  }}
-  className={styles.arrow}
-  type="button"
-  onClick={() => window.open(project.link, "_blank", "noopener,noreferrer")}
->
-  <ArrowUpRight />
-</motion.button>
+                      whileHover={{
+                        rotate: 45,
+                        scale: 1.08,
+                      }}
+                      className={styles.arrow}
+                      type="button"
+                      onClick={() => window.open(project.link, "_blank", "noopener,noreferrer")}
+                    >
+                      <ArrowUpRight />
+                    </motion.button>
                   </div>
                 </motion.div>
               )
