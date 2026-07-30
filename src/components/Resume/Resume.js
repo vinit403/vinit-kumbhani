@@ -271,6 +271,44 @@ export default function Resume() {
             </div>
 
             <div className={styles.timeline}>
+                            <motion.div
+                className={styles.timelineItem}
+                variants={timelineItem}
+              >
+                <div className={styles.dot}></div>
+
+                <div className={styles.timelineContent}>
+                  <h4>
+                    REACT DEVELOPER
+                  </h4>
+
+                  <span>
+                    2024 - Present
+                  </span>
+
+                  <h5>
+                    ELITIST SOFTWARE
+                    SOLUTIONS LLP,
+                    SURAT, GUJARAT
+                  </h5>
+
+                  <ul>
+                    <li>
+                      Lead in the design,
+                      development and
+                      implementation of the
+                      application.
+                    </li>
+
+                    <li>
+                      Delegate tasks and
+                      mentor development
+                      team members.
+                    </li>
+                  </ul>
+                </div>
+              </motion.div>
+              
               <motion.div
                 className={styles.timelineItem}
                 variants={timelineItem}
@@ -305,44 +343,6 @@ export default function Resume() {
                       members to deliver
                       scalable mobile
                       applications.
-                    </li>
-                  </ul>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className={styles.timelineItem}
-                variants={timelineItem}
-              >
-                <div className={styles.dot}></div>
-
-                <div className={styles.timelineContent}>
-                  <h4>
-                    REACT NATIVE DEVELOPER
-                  </h4>
-
-                  <span>
-                    2024 - Present
-                  </span>
-
-                  <h5>
-                    ELITIST SOFTWARE
-                    SOLUTIONS LLP,
-                    SURAT, GUJARAT
-                  </h5>
-
-                  <ul>
-                    <li>
-                      Lead in the design,
-                      development and
-                      implementation of the
-                      application.
-                    </li>
-
-                    <li>
-                      Delegate tasks and
-                      mentor development
-                      team members.
                     </li>
                   </ul>
                 </div>

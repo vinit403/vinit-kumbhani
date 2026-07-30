@@ -92,7 +92,7 @@ export default function About() {
                 </h2>
 
                 <p>
-                    I'm Vinit Kumbhani, a passionate React Developer
+                    I'm Vinit Kumbhani, a passionate Software Developer
                     (Application & Website) with 2 years of hands-on
                     experience. My journey into mobile application and
                     website development has been exciting and rewarding.
